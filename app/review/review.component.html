@@ -13,7 +13,7 @@
       Leaf Bases : {{folder[3]}}&nbsp; &nbsp;
       Leaf Margin : {{folder[4]}}&nbsp; &nbsp;
       </h4> 
-      <div class="container__3-ij">
+      <div class="container__3-iq">
           <div title="Upvote" *ngIf="folderResult[folder[0]]?.length && folderResult[folder[0]][0]==1; else UPvote" data-is-voted="true">
             <mat-icon  [ngClass]="['Like','afterVote']" type="submit" (click)="folderVote(folder[0],'u')" >thumb_up</mat-icon>
           </div>
@@ -53,7 +53,7 @@
               <mat-icon [ngClass]="['up','afterVote']" type="submit" (click)="imgVote(folder[0],i,'u')" >thumb_up</mat-icon>
             </div>
           </ng-template>
-          <div title="Vote count" ><span>{{y[folder[0]+"_"+i]}}</span></div>  
+          <div title="Vote count" class="count" ><span>{{y[folder[0]+"_"+i]}}</span></div>  
           <div title="Downvote" *ngIf="check_imgVote(folder[0],i,'d'); else removeDOWN">
             <mat-icon type="submit" class="down"  (click)="imgVote(folder[0],i,'d')">thumb_down</mat-icon>
           </div>
@@ -83,100 +83,109 @@
       </div>
         <div class="container__3-ij">
           <div class="card">
-            <h2>Plant Name</h2><br>
+            <br><br>
+            <h2>Plant Name</h2>
+            
             <div *ngFor="let correction of correctionList(folder[0],'leaf_division')">
               <div class="container__3-ij">
                 {{correction}}
+                <br>
                 <div title="Upvote" *ngIf="check_correctionVote(folder[0],'leaf_division',correction,'u'); else removeCorrectionUP">
-                  <mat-icon class="up" type="submit" (click)="correctionsVote(folder[0],'leaf_division',correction,'u')" >thumb_up</mat-icon>
+                  <mat-icon class="up_vote" type="submit" (click)="correctionsVote(folder[0],'leaf_division',correction,'u')" >thumb_up</mat-icon>
                 </div>
                 <ng-template #removeCorrectionUP>
                   <div title="Upvote">
-                    <mat-icon [ngClass]="['up','afterVote']" type="submit" (click)="correctionsVote(folder[0],'leaf_division',correction,'u')" >thumb_up</mat-icon>
+                    <mat-icon [ngClass]="['up_vote','afterVote']" type="submit" (click)="correctionsVote(folder[0],'leaf_division',correction,'u')" >thumb_up</mat-icon>
                   </div>
                 </ng-template>
                 <div title="Vote count" ><span>{{z[folder[0]+"_leaf_division_"+correction]}}</span></div>  
                 <div title="Downvote" *ngIf="check_correctionVote(folder[0],'leaf_division',correction,'d'); else removeCorrectionDOWN">
-                  <mat-icon type="submit" class="down"  (click)="correctionsVote(folder[0],'leaf_division',correction,'d')">thumb_down</mat-icon>
+                  <mat-icon type="submit" class="down_vote"  (click)="correctionsVote(folder[0],'leaf_division',correction,'d')">thumb_down</mat-icon>
                 </div>
                 <ng-template #removeCorrectionDOWN>
                   <div title="Downvote">
-                    <mat-icon type="submit" [ngClass]="['down','afterVote']"  (click)="correctionsVote(folder[0],'leaf_division',correction,'d')">thumb_down</mat-icon>
+                    <mat-icon type="submit" [ngClass]="['down_vote','afterVote']"  (click)="correctionsVote(folder[0],'leaf_division',correction,'d')">thumb_down</mat-icon>
                   </div>
                 </ng-template>
               </div>
             </div>
           </div>  
           <div class="card">
-           <h2>Leaf Apices</h2><br>
+            <br><br>
+           <h2>Leaf Apices</h2>
             <div *ngFor="let correction of correctionList(folder[0],'leaf_apices')">
               <div class="container__3-ij">
-                {{correction}}
-                <div title="Upvote" *ngIf="check_correctionVote(folder[0],'leaf_apices',correction,'u'); else removeCorrectionUP">
-                  <mat-icon class="up" type="submit" (click)="correctionsVote(folder[0],'leaf_apices',correction,'u')" >thumb_up</mat-icon>
+               <p>{{correction}}</p>
+               <br> 
+               <div title="Upvote" *ngIf="check_correctionVote(folder[0],'leaf_apices',correction,'u'); else removeCorrectionUP">
+                  <mat-icon class="up_vote" type="submit" (click)="correctionsVote(folder[0],'leaf_apices',correction,'u')" >thumb_up</mat-icon>
                 </div>
                 <ng-template #removeCorrectionUP>
                   <div title="Upvote">
-                    <mat-icon [ngClass]="['up','afterVote']" type="submit" (click)="correctionsVote(folder[0],'leaf_apices',correction,'u')" >thumb_up</mat-icon>
+                    <mat-icon [ngClass]="['up_vote','afterVote']" type="submit" (click)="correctionsVote(folder[0],'leaf_apices',correction,'u')" >thumb_up</mat-icon>
                   </div>
                 </ng-template>
-                <div title="Vote count" ><span>{{z[folder[0]+"_leaf_apices_"+correction]}}</span></div>  
+                <div title="Vote count" class="vote_count"><span>{{z[folder[0]+"_leaf_apices_"+correction]}}</span></div>  
                 <div title="Downvote" *ngIf="check_correctionVote(folder[0],'leaf_apices',correction,'d'); else removeCorrectionDOWN">
-                  <mat-icon type="submit" class="down"  (click)="correctionsVote(folder[0],'leaf_apices',correction,'d')">thumb_down</mat-icon>
+                  <mat-icon type="submit" class="down_vote"  (click)="correctionsVote(folder[0],'leaf_apices',correction,'d')">thumb_down</mat-icon>
                 </div>
                 <ng-template #removeCorrectionDOWN>
                   <div title="Downvote">
-                    <mat-icon type="submit" [ngClass]="['down','afterVote']"  (click)="correctionsVote(folder[0],'leaf_apices',correction,'d')">thumb_down</mat-icon>
+                    <mat-icon type="submit" [ngClass]="['down_vote','afterVote']"  (click)="correctionsVote(folder[0],'leaf_apices',correction,'d')">thumb_down</mat-icon>
                   </div>
                 </ng-template>
               </div>
             </div>
           </div>
           <div class="card">
-            <h2>Leaf Bases</h2><br>    
+            <br><br>
+            <h2>Leaf Bases</h2>    
             <div *ngFor="let correction of correctionList(folder[0],'leaf_bases')">
               <div class="container__3-ij">
                 {{correction}}
+                <br>
                 <div title="Upvote" *ngIf="check_correctionVote(folder[0],'leaf_bases',correction,'u'); else removeCorrectionUP">
-                  <mat-icon class="up" type="submit" (click)="correctionsVote(folder[0],'leaf_bases',correction,'u')" >thumb_up</mat-icon>
+                  <mat-icon class="up_vote" type="submit" (click)="correctionsVote(folder[0],'leaf_bases',correction,'u')" >thumb_up</mat-icon>
                 </div>
                 <ng-template #removeCorrectionUP>
                   <div title="Upvote">
-                    <mat-icon [ngClass]="['up','afterVote']" type="submit" (click)="correctionsVote(folder[0],'leaf_bases',correction,'u')" >thumb_up</mat-icon>
+                    <mat-icon [ngClass]="['up_vote','afterVote']" type="submit" (click)="correctionsVote(folder[0],'leaf_bases',correction,'u')" >thumb_up</mat-icon>
                   </div>
                 </ng-template>
-                <div title="Vote count" ><span>{{z[folder[0]+"_leaf_bases_"+correction]}}</span></div>  
+                <div class="vote_count" title="Vote count" ><span>{{z[folder[0]+"_leaf_bases_"+correction]}}</span></div>  
                 <div title="Downvote" *ngIf="check_correctionVote(folder[0],'leaf_bases',correction,'d'); else removeCorrectionDOWN">
-                  <mat-icon type="submit" class="down"  (click)="correctionsVote(folder[0],'leaf_bases',correction,'d')">thumb_down</mat-icon>
+                  <mat-icon type="submit" class="down_vote"  (click)="correctionsVote(folder[0],'leaf_bases',correction,'d')">thumb_down</mat-icon>
                 </div>
                 <ng-template #removeCorrectionDOWN>
                   <div title="Downvote">
-                    <mat-icon type="submit" [ngClass]="['down','afterVote']"  (click)="correctionsVote(folder[0],'leaf_bases',correction,'d')">thumb_down</mat-icon>
+                    <mat-icon type="submit" [ngClass]="['down_vote','afterVote']"  (click)="correctionsVote(folder[0],'leaf_bases',correction,'d')">thumb_down</mat-icon>
                   </div>
                 </ng-template>
               </div>  
             </div>
           </div>
           <div class="card">
-           <h2>Leaf Margin</h2><br>   
+            <br><br>
+           <h2>Leaf Margin</h2>
             <div data-placeholder="leaf_margin" *ngFor="let correction of correctionList(folder[0],'leaf_margin')">
               <div class="container__3-ij">
-                {{correction}}&nbsp; &nbsp;
+                {{correction}}
+                <br>
                 <div title="Upvote" *ngIf="check_correctionVote(folder[0],'leaf_margin',correction,'u'); else removeCorrectionUP">
-                  <mat-icon class="up" type="submit" (click)="correctionsVote(folder[0],'leaf_margin',correction,'u')" >thumb_up</mat-icon>
+                  <mat-icon class="up_vote" type="submit" (click)="correctionsVote(folder[0],'leaf_margin',correction,'u')" >thumb_up</mat-icon>
                 </div>
                 <ng-template #removeCorrectionUP>
                   <div title="Upvote">
-                    <mat-icon [ngClass]="['up','afterVote']" type="submit" (click)="correctionsVote(folder[0],'leaf_margin',correction,'u')" >thumb_up</mat-icon>
+                    <mat-icon [ngClass]="['up_vote','afterVote']" type="submit" (click)="correctionsVote(folder[0],'leaf_margin',correction,'u')" >thumb_up</mat-icon>
                   </div>
                 </ng-template>
-                <div title="Vote count" ><span>{{z[folder[0]+"_leaf_margin_"+correction]}}</span></div>  
+                <div title="Vote count" class="vote_count" ><span>{{z[folder[0]+"_leaf_margin_"+correction]}}</span></div>  
                 <div title="Downvote" *ngIf="check_correctionVote(folder[0],'leaf_margin',correction,'d'); else removeCorrectionDOWN">
-                  <mat-icon type="submit" class="down"  (click)="correctionsVote(folder[0],'leaf_margin',correction,'d')">thumb_down</mat-icon>
+                  <mat-icon type="submit" class="down_vote"  (click)="correctionsVote(folder[0],'leaf_margin',correction,'d')">thumb_down</mat-icon>
                 </div>
                 <ng-template #removeCorrectionDOWN>
                   <div title="Downvote">
-                    <mat-icon type="submit" [ngClass]="['down','afterVote']"  (click)="correctionsVote(folder[0],'leaf_margin',correction,'d')">thumb_down</mat-icon>
+                    <mat-icon type="submit" [ngClass]="['down_vote','afterVote']"  (click)="correctionsVote(folder[0],'leaf_margin',correction,'d')">thumb_down</mat-icon>
                   </div>
                 </ng-template>
               </div>  
@@ -185,22 +194,27 @@
         </div>
       </div>
      
-      <label class="switch">
-        <span class="slider round">   
+      <!-- <label class="switch">
+        <span class="slider round">    
           <input type="checkbox" (click)="folder.isCollapsed=!folder.isCollapsed; folder.isCollapsed && fetchComments(folder[0]);"  
           [attr.aria-expanded]="!folder.isCollapsed" aria-controls="coll"> <br> 
-      </span>
-        </label>
+        </span> 
+      </label>  -->
+      
+      <input type="checkbox" class="checkbox" id="swi" (click)="folder.isCollapsed=!folder.isCollapsed; folder.isCollapsed && fetchComments(folder[0]);"  
+        [attr.aria-expanded]="!folder.isCollapsed" aria-controls="coll"> <br> 
+      <label for="swi" class="togg"></label>
+      
       <div id="coll"  [hidden]="!folder.isCollapsed?true:null" *ngIf="!comments[folder[0]]?.length && folder.isCollapsed; else avail">
         No reviews available.
       </div> 
       <ng-template #avail>
         <div id="coll" [hidden]="!folder.isCollapsed?true:null" *ngFor="let comment of comments[folder[0]]">
-           <div class="content">
-             {{comment[0]}} &nbsp; &nbsp; &nbsp; {{comment[2]}} 
-             <br><br> <p>{{comment[1]}}</p>
-           </div>
+          <div class="content">
+            {{comment[0]}} &nbsp; &nbsp; &nbsp; {{comment[2]}} 
+            <br><br> <p>{{comment[1]}}</p>
           </div>
+        </div>
       </ng-template>
       <br>          
      
