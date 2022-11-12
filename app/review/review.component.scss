@@ -1,15 +1,47 @@
-.container__3-ij {
-  display: -webkit-box;
-  display: -ms-flexbox;
+.container__3-iq
+{
   display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
   justify-content: center;
-  margin-top: 2rem;
-  padding-bottom: 2rem;
+  text-transform: capitalize;
+}
+.container__3-ip
+{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: capitalize;
+  width: 100%;
+  height: auto;
+
+}
+.container__3-ij { 
+  display: flex;
+  align-items: center;
+  text-transform: capitalize;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-flow: wrap;
+  width: 100%;
+  height: auto;
+  padding-top: 0.2rem;
+  text-align: center;
+}
+.card
+{
+  border: 0.5px solid black;
+  width: 220px;
+  height: 220px;
+  margin: 2%;
+  text-align: center;
+  font-size: large;
+  overflow-y: auto;
+  overflow-x: hidden;
+  justify-content: center;
+   
+}
+.h2{
+  color: black;
 }
 .heading{
   padding-bottom: -20%;
@@ -57,11 +89,7 @@ h1{
 body{
   padding-top: 2%;
   padding: 5%;
-  font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial, sans-serif; 
-  // background-color: #63d471;
-  // background-image: linear-gradient(315deg, #63d471 0%, #233329 74%);
-
-  
+  font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial, sans-serif;   
 }
 
 textarea{
@@ -86,18 +114,7 @@ textarea{
     padding: 2px;
     
 }
-.card
-{
-  border: 0.5px solid black;
-  width: 25%;
-  height: 200px;
-  margin-right: 2rem;
-  text-align: center;
-  font-size: large;
-  overflow-y: auto;
-  overflow-x: hidden;
 
-}
 .card-img-top:hover
 {
   transform: scale(1.1);
@@ -108,101 +125,40 @@ textarea{
   display: flex;
   width: auto;
   justify-content: left;
-  //color: black;
+ 
   font-size: large;
 }
-.switch {
-  position: relative;
-  display: inline-block;
-  width: 60px;
-  height: 34px;
-  
-}
 
-.switch input { 
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
 
-.slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #ccc;
-  -webkit-transition: .4s;
-  transition: .4s;
-}
 
-.slider:before {
-  position: absolute;
-  content: "";
-  height: 26px;
-  width: 26px;
-  left: 4px;
-  bottom: 4px;
-  background-color: white;
-  -webkit-transition: .4s;
-  transition: .4s;
-}
-
-input:checked + .slider {
-  background-color: #2196F3;
-}
-
-input:focus + .slider {
-  box-shadow: 0 0 1px #2196F3;
-}
-
-input:checked + .slider:before {
-  -webkit-transform: translateX(26px);
-  -ms-transform: translateX(26px);
-  transform: translateX(26px);
-}
-
-/* Rounded sliders */
-.slider.round {
-  border-radius: 34px;
-}
-
-.slider.round:before {
-  border-radius: 50%;
-}
-
-.content {
-  margin-top: 5px;
-  padding: 4px;
-  max-height: 100px;
-  overflow: auto;
-  transition: max-height 0.2s ease-out;
-  background-color: #f1f1f1;
-  white-space: pre-wrap;
-}
 
 .Like{
-  //color: blue;
+ 
   padding-right: 2rem;
 }
 .Dislike{
  margin-left: 1rem;
 }
 .reporticon{
-  //padding-left: 2rem;
+ 
   margin-left: 2rem;
 }
 .up{
+  margin-top: 2rem;
   margin-left: 2rem;
   padding-right: 2rem;
 }
 .down{
+  margin-top: 2rem;
   margin-left:1rem;
+}
+.count{
+  margin-top: 2rem;
 }
 .rp
 {
 //align-items: center;
+margin-top: 2rem;
 margin-left: 2rem;
 }
 .afterVote{
@@ -213,4 +169,40 @@ margin-left: 2rem;
   padding: 2rem;
   padding-top: -2rem;
   margin-bottom: 2rem;
+ 
+}
+.togg {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+  background-color: gray;
+  border-radius: 30px;
+}
+.togg:after{
+  content: "";
+  position: absolute;
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  border-radius: 50%;
+  transition: all .1s;
+}
+.checkbox:checked ~.togg:after {
+  left: 30px;
+}
+.checkbox:checked ~ .togg {
+  background-color: #2196F3;
+ 
+}
+.checkbox{
+  display: none;
+}
+.h2{
+ margin-top: 2rem;
+}
+.up_vote{
+margin-left: -4%;
 }
